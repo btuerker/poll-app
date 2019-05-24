@@ -1,0 +1,34 @@
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding-top: 64px;
+}
+
+.navbar {
+  position: fixed;
+  max-width: 1200px;
+  margin: 0 auto;
+  left: 0;
+  right: 0;
+  top: 0;
+  height: 48px;
+  background-color: salmon;
+  display: flex;
+  align-items: center;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.7)
+}
+
+.nav-links {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  padding: 0 16px;
+}
+
+.nav-item {
+  display: inline-block;
+}
+
+.pull-right {
+  margin-left: auto;
+}
