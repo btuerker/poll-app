@@ -1,9 +1,0 @@
-# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
-
-one:
-  poll: one
-  body: MyString
-
-two:
-  poll: two
-  body: MyString
