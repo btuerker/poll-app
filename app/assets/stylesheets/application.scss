@@ -1,7 +1,13 @@
+body {
+  margin: 0;
+  padding: 0;
+  background-color: rgba(200, 200, 200, 0.6)
+}
 .container {
   max-width: 1200px;
   margin: 0 auto;
   padding-top: 64px;
+  position: relative;
 }
 
 .navbar {
@@ -15,7 +21,8 @@
   background-color: salmon;
   display: flex;
   align-items: center;
-  box-shadow: 0 0 10px rgba(255, 255, 255, 0.7)
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.7);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.4);
 }
 
 .nav-links {
@@ -31,4 +38,36 @@
 
 .pull-right {
   margin-left: auto;
+}
+
+.main-left {
+  max-width: 700px;
+}
+
+.main-right {
+  position: fixed;
+  right: 50%;
+  margin-right: -600px;
+  top: 64px;
+  width: 480px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  .poll-form {
+    border-radius: 20px;
+    margin: 20px;
+    width: 440px;
+    background-color: salmon;
+  }
+}
+
+.poll {
+  margin: 20px 0;
+  width: 100%;
+}
+
+.user-interface {
+  border: 1px solid red;
+  margin: 20px;
+  width: 440px;
 }
