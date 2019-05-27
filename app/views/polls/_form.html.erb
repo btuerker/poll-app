@@ -1,27 +1,32 @@
-<%= form_for poll = Poll.new() do |form| %>
-  <% if poll.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(poll.errors.count, "error") %> prohibited this poll from being saved:</h2>
+<div class="form-container">
+  <%= form_for poll = Poll.new() do |form| %>
+    <% if poll.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(poll.errors.count, "error") %> prohibited this poll from being saved:</h2>
+  
+        <ul>
+        <% poll.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+        </ul>
+      </div>
+    <% end %>
+  
+    <div class="field">
+      <%= form.label :question %>
+      <%= form.text_field :question %>
+    </div>
 
-      <ul>
-      <% poll.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
+    <%= form_for @options :option %>
+  
+    <div class="field">
+      <%= form.label :expiration_date %>
+      <%= form.date_select :expiration_date %>
+    </div>
+  
+    <div class="actions">
+      <%= form.submit %>
     </div>
   <% end %>
-
-  <div class="field">
-    <%= form.label :question %>
-    <%= form.text_field :question %>
-  </div>
-
-  <div class="field">
-    <%= form.label :expiration_date %>
-    <%= form.date_select :expiration_date %>
-  </div>
-
-  <div class="actions">
-    <%= form.submit %>
-  </div>
-<% end %>
+  
+</div>
