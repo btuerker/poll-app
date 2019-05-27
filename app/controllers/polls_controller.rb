@@ -5,6 +5,8 @@ class PollsController < ApplicationController
   # GET /polls.json
   def index
     @polls = Poll.all
+    @poll = Poll.new
+    @poll.options.build
   end
 
   # GET /polls/1
@@ -24,7 +26,7 @@ class PollsController < ApplicationController
   # POST /polls
   # POST /polls.json
   def create
-    @poll = Poll.new(poll_params)
+    @poll = current_user.polls.build(poll_params)
     respond_to do |format|
       if @poll.save
         format.html { redirect_to @poll, notice: 'Poll was successfully created.' }
@@ -69,6 +71,6 @@ class PollsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def poll_params
-      params.require(:poll).permit(:question, :expiration_date)
+      params.require(:poll).permit(:question, :expiration_date, options_attributes: [:body])
     end
 end

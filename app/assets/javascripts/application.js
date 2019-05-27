@@ -14,3 +14,13 @@
 //= require activestorage
 //= require turbolinks
 //= require_tree .
+
+  function newOptionInput() {
+    var ul = document.getElementById('new-poll-options');
+    var li = document.createElement('li');
+    var input = document.createElement('input');
+    input.setAttribute('type', 'text');
+    input.setAttribute('name', "poll[options_attributes][" + ul.childElementCount + "][body]");
+    li.appendChild(input);
+    document.getElementById("new-poll-options").appendChild(li);
+  }
