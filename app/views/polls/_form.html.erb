@@ -1,45 +1,27 @@
-<div class="form-container">
-  <%= form_for @poll do |form| %>
-    <% if @poll.errors.any? %>
-      <div id="error_explanation">
-        <h2><%= pluralize(@poll.errors.count, "error") %> prohibited this poll from being saved:</h2>
+<%= form_for @poll do |form| %>
 
-        <ul>
-          <% @poll.errors.full_messages.each do |message| %>
-            <li><%= message %></li>
-          <% end %>
-        </ul>
-      </div>
+  <div class="field question">
+    <%= form.text_field :question, placeholder: "Type your question here" %>
+  </div>
+
+  <ul id="new-poll-options">
+    <% 3.times do %>
+      <li>
+        <%= form.fields_for :options do |option_fields| %>
+          <%= option_fields.text_field :body %>
+        <% end %>
+      </li>
     <% end %>
+  </ul>
 
-    <div class="field">
-      <%= form.label :question %>
-      <%= form.text_field :question %>
-    </div>
+  <button class="add-option" type="button" onclick="newOptionInput()">+</button>
 
-    <ul id = "new-poll-options">
-      <li>
-        <%= form.fields_for :options do |option_fields| %>
-          <%= option_fields.label :body %>
-          <%= option_fields.text_field :body %>
-        <% end %>
-      </li>
-      <li>
-        <%= form.fields_for :options do |option_fields| %>
-          <%= option_fields.label :body %>
-          <%= option_fields.text_field :body %>
-        <% end %>
-      </li>
-    </ul>
-    <button type="button" onclick="newOptionInput()">+</button>
-    <div class="field">
-      <%= form.label :expiration_date %>
-      <%= form.date_select :expiration_date %>
-    </div>
+  <div class="exp-date field">
+    <%= form.label :expiration_date %>
+    <%= form.date_select :expiration_date %>
+  </div>
 
-    <div class="actions">
-      <%= form.submit %>
-    </div>
-  <% end %>
-
-</div>
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

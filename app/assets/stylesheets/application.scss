@@ -1,7 +1,7 @@
 body {
   margin: 0;
   padding: 0;
-  background-color: rgba(200, 200, 200, 0.6)
+  background-color: #e9ebee;
 }
 .container {
   max-width: 1200px;
@@ -12,17 +12,19 @@ body {
 
 .navbar {
   position: fixed;
-  max-width: 1200px;
-  margin: 0 auto;
   left: 0;
   right: 0;
   top: 0;
   height: 48px;
   background-color: salmon;
+  box-shadow: 0 0 3px black;
+}
+
+.nav-container {
+  max-width: 1200px;
+  margin: 0 auto;
   display: flex;
   align-items: center;
-  box-shadow: 0 0 10px rgba(255, 255, 255, 0.7);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.4);
 }
 
 .nav-links {
@@ -58,15 +60,40 @@ body {
     margin: 20px;
     width: 440px;
     background-color: salmon;
-  }
-  .form-container {
-    margin: 20px;
+    box-shadow: 0 0 3px black;
+    .new_poll {
+      margin: 40px;
+    }
+    .new_poll input {
+      width: 100%;
+      box-sizing: border-box;
+      line-height: 24px;
+    }
+    ul {
+      list-style: none;
+      margin: 20px 0 0 0;
+      padding: 0;
+    }
+    .question input {
+      line-height: 32px;
+      font-size: 18px;
+    }
+    .exp-date {
+      margin: 20px 0;
+      color: white;
+      font-family: Arial, Helvetica, sans-serif;
+      font-weight: bold;
+    }
   }
 }
 
 .poll {
-  margin: 20px 0;
-  width: 100%;
+  margin: 20px auto;
+  width: 500px;
+  height:100px;
+  border: 1px solid #dddfe2;
+  border-radius: 3px;
+  background-color: white;
 }
 
 .user-interface {
