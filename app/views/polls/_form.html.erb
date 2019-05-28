@@ -1,14 +1,14 @@
 <%= form_for @poll do |form| %>
 
-  <div class="field question">
-    <%= form.text_field :question, placeholder: "Type your question here" %>
+  <div class="question">
+    <%= form.text_field :question, placeholder: "Type your question here", class: "line" %>
   </div>
 
   <ul id="new-poll-options">
-    <% 3.times do %>
+    <% for i in 1..3 %>
       <li>
         <%= form.fields_for :options do |option_fields| %>
-          <%= option_fields.text_field :body %>
+          <%= option_fields.text_field :body, class: "line", placeholder: "Option " + i.to_s %>
         <% end %>
       </li>
     <% end %>
@@ -16,7 +16,7 @@
 
   <button class="add-option" type="button" onclick="newOptionInput()">+</button>
 
-  <div class="exp-date field">
+  <div class="exp-date">
     <%= form.label :expiration_date %>
     <%= form.date_select :expiration_date %>
   </div>

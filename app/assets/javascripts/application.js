@@ -20,6 +20,8 @@
     var li = document.createElement('li');
     var input = document.createElement('input');
     input.setAttribute('type', 'text');
+    input.setAttribute('class', 'line');
+    input.setAttribute('placeholder', "Option " + (ul.childElementCount + 1));
     input.setAttribute('name', "poll[options_attributes][" + ul.childElementCount + "][body]");
     li.appendChild(input);
     document.getElementById("new-poll-options").appendChild(li);
