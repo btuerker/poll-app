@@ -17,12 +17,18 @@
 
   function newOptionInput() {
     var ul = document.getElementById('new-poll-options');
-    var li = document.createElement('li');
-    var input = document.createElement('input');
-    input.setAttribute('type', 'text');
-    input.setAttribute('class', 'line');
-    input.setAttribute('placeholder', "Option " + (ul.childElementCount + 1));
-    input.setAttribute('name', "poll[options_attributes][" + ul.childElementCount + "][body]");
-    li.appendChild(input);
-    document.getElementById("new-poll-options").appendChild(li);
-  }
+    var lastElement = ul.lastElementChild.firstElementChild;
+    if(event.currentTarget == lastElement) {
+      lastElement.removeAttribute("oninput");
+      var newElement = document.createElement('li');
+      var optionInput = document.createElement('input');
+      optionInput.setAttribute('type', 'text');
+      optionInput.setAttribute('class', 'line');
+      optionInput.setAttribute('placeholder', "Option " + (ul.childElementCount + 1));
+      optionInput.setAttribute('name', "poll[options_attributes][" + ul.childElementCount + "][body]");
+      optionInput.setAttribute('oninput', 'newOptionInput()');
+      optionInput.setAttribute('autocomplete', 'off');
+      newElement.appendChild(optionInput);
+      document.getElementById("new-poll-options").appendChild(newElement);
+    }
+}

@@ -57,45 +57,59 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  .poll-form {
-    border-radius: 10px;
-    margin: 20px;
-    width: 440px;
+}
+
+.poll-form {
+  border-radius: 10px;
+  margin: 20px;
+  width: 440px;
+  background-color: $main-color;
+  box-shadow: 0 0 3px black;
+  overflow-y: auto;
+  max-height: 70vh;
+  .new_poll {
+    margin: 40px;
+  }
+  .line,
+  .line:-webkit-autofill,
+  .line:-webkit-autofill:hover,
+  .line:-webkit-autofill:focus {
+    width: 100%;
+    box-sizing: border-box;
+    border: none;
+    border-bottom: 1px solid black;
     background-color: $main-color;
-    box-shadow: 0 0 3px black;
-    .new_poll {
-      margin: 40px;
-    }
-    .line {
-      width: 100%;
-      box-sizing: border-box;
-      line-height: 24px;
-      border: none;
-      border-bottom: 1px solid black;
-      background-color: $main-color;
-      color: black;
-    }
-    ul {
-      list-style: none;
-      margin: 20px 0;
-      padding: 0;
-    }
-    li {
-      margin: 5px 0;
-    }
-    .question input {
-      line-height: 32px;
-      font-size: 18px;
-    }
-    .exp-date {
-      width: 100%;
-      margin: 30px 0;
-      font-family: Arial, Helvetica, sans-serif;
-    }
-    .actions input{
-      width: 100%;
-      line-height: 24px;
-    }
+    color: black;
+    -webkit-box-shadow: 0 0 0px 1000px $main-color inset;
+  }
+
+  .line:active {
+    background-color: red;
+  }
+  input {
+    outline: none;
+  }
+  ul {
+    list-style: none;
+    margin: 20px 0;
+    padding: 0;
+  }
+  li {
+    line-height: 24px;
+    margin: 5px 0;
+  }
+  .question input {
+    line-height: 32px;
+    font-size: 18px;
+  }
+  .exp-date {
+    width: 100%;
+    margin: 30px 0;
+    font-family: Arial, Helvetica, sans-serif;
+  }
+  .actions input{
+    width: 100%;
+    line-height: 24px;
   }
 }
 

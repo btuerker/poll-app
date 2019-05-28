@@ -8,13 +8,14 @@
     <% for i in 1..3 %>
       <li>
         <%= form.fields_for :options do |option_fields| %>
-          <%= option_fields.text_field :body, class: "line", placeholder: "Option " + i.to_s %>
+          <%= option_fields.text_field :body, class: "line",
+            placeholder: "Option " + i.to_s,
+            oninput: 'newOptionInput()',
+            autocomplete: 'off' %>
         <% end %>
       </li>
     <% end %>
   </ul>
-
-  <button class="add-option" type="button" onclick="newOptionInput()">+</button>
 
   <div class="exp-date">
     <%= form.label :expiration_date %>
