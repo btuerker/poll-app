@@ -1,27 +1,12 @@
-<%= form_with(model: vote, local: true) do |form| %>
-  <% if vote.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(vote.errors.count, "error") %> prohibited this vote from being saved:</h2>
-
-      <ul>
-      <% vote.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-  <div class="field">
-    <%= form.label :poll_id %>
-    <%= form.text_field :poll_id %>
-  </div>
-
-  <div class="field">
-    <%= form.label :option_id %>
-    <%= form.text_field :option_id %>
-  </div>
-
-  <div class="actions">
-    <%= form.submit %>
-  </div>
+<%= form_for vote = Vote.new do |f| %>
+  <%= f.hidden_field :poll_id, value: poll.id %>
+  <ul class="vote-options">
+    <%= collection_radio_buttons :vote, :option_id, poll.options, :id, :option_body do |option| %>
+      <li>
+        <%= option.radio_button %>
+        <%= option.label %>
+      </li>
+    <% end %>
+  </ul>
+  <%= f.submit "Vote", class: "vote-btn" %>
 <% end %>

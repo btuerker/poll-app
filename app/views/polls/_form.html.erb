@@ -1,7 +1,7 @@
 <%= form_for @poll do |form| %>
 
   <div class="question">
-    <%= form.text_field :question, placeholder: "Type your question here", class: "line" %>
+    <%= form.text_field :question, placeholder: "Type your question here", class: "line", autocomplete: "off" %>
   </div>
 
   <ul id="new-poll-options">

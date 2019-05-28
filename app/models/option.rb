@@ -3,4 +3,9 @@ class Option < ApplicationRecord
 
   validates :body, presence: true, length: {maximum: 255}
   validates :poll, presence: true
+
+  def option_body
+    self.body
+  end
+
 end
